@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bulk Post Creator</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+</head>
+<body>
+<div class="app">
+
+  <div class="sidebar">
+    <div class="app-title">
+      <i class="ti ti-layout-grid" aria-hidden="true"></i> Bulk Post Creator
+    </div>
+
+    <div>
+      <div class="section-label">1. Background image</div>
+      <div class="upload-zone" id="img-zone">
+        <i class="ti ti-photo" aria-hidden="true"></i>
+        <span>Click or drop image here<br><small>JPG, PNG, WEBP</small></span>
+        <input type="file" id="img-input" accept="image/*">
+        <div class="uploaded-name" id="img-name" style="display:none">
+          <i class="ti ti-check" aria-hidden="true"></i><span></span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">2. Text fields</div>
+      <div class="field-list" id="field-list"></div>
+      <button class="btn" id="add-field-btn" style="margin-top:8px">
+        <i class="ti ti-plus" aria-hidden="true"></i> Add text field
+      </button>
+    </div>
+
+    <hr>
+
+    <div>
+      <div class="section-label">3. CSV data</div>
+      <div class="csv-hint">
+        First column = row number. Then one value per field.<br>
+        Choose delimiter below.
+      </div>
+      <div class="delim-row">
+        <div class="delim-btn active" data-delim=",">, comma</div>
+        <div class="delim-btn" data-delim=";">; semicolon</div>
+        <div class="delim-btn" data-delim="&#9;">⇥ tab</div>
+      </div>
+      <div style="margin-top:8px">
+        <div class="upload-zone" id="csv-zone">
+          <i class="ti ti-file-text" aria-hidden="true"></i>
+          <span>Click or drop CSV here</span>
+          <input type="file" id="csv-input" accept=".csv,.tsv,text/csv,text/plain">
+          <div class="uploaded-name" id="csv-name" style="display:none">
+            <i class="ti ti-check" aria-hidden="true"></i><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="csv-preview" id="csv-preview"></div>
+    </div>
+
+    <div>
+      <div class="section-label">4. Export format</div>
+      <div class="format-row">
+        <div class="fmt-btn active" data-fmt="jpeg">JPG</div>
+        <div class="fmt-btn" data-fmt="png">PNG</div>
+        <div class="fmt-btn" data-fmt="webp">WEBP</div>
+      </div>
+    </div>
+
+    <div class="error-box" id="error-box">
+      <i class="ti ti-alert-circle" aria-hidden="true"></i>
+      <span id="error-msg"></span>
+    </div>
+
+    <div class="progress-bar" id="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <button class="btn primary" id="generate-btn" disabled>
+      <i class="ti ti-download" aria-hidden="true"></i> Generate &amp; Download ZIP
+    </button>
+  </div>
+
+  <div class="main">
+    <div class="preview-area">
+      <div class="preview-title">Preview — drag text fields to reposition</div>
+      <div class="canvas-wrap" id="canvas-wrap">
+        <canvas id="preview-canvas" width="540" height="540"></canvas>
+      </div>
+      <div class="nav-row" id="nav-row" style="display:none">
+        <button class="btn nav-btn" id="prev-btn"><i class="ti ti-chevron-left" aria-hidden="true"></i></button>
+        <span class="nav-idx" id="nav-idx">Row 1 / 1</span>
+        <button class="btn nav-btn" id="next-btn"><i class="ti ti-chevron-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
