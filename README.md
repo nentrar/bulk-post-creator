@@ -1,6 +1,6 @@
 # Bulk Post Creator
 
-A lightweight, browser-based tool for generating bulk social media posts (Instagram / Facebook square format) from a background image and a CSV file. No server, no backend, no account needed — everything runs locally in the browser.
+A lightweight, browser-based tool for generating bulk social media posts (Instagram / Facebook square format) from a background image and a CSV file. Everything runs locally in the browser.
 
 > Built as a free alternative to Canva's premium bulk create feature.
 
@@ -20,6 +20,7 @@ A lightweight, browser-based tool for generating bulk social media posts (Instag
 
 ## CSV format
 
+The app was made to read a CSV file with the following structure.
 First column is the row number (lp), followed by one value per text field:
 
 ```
@@ -42,37 +43,7 @@ First column is the row number (lp), followed by one value per text field:
 6. Pick export format (JPG / PNG / WEBP)
 7. Click **Generate & Download ZIP**
 
-## Project structure
-
-```
-bulk-post-creator/
-├── index.html   # App shell and layout
-├── style.css    # All styling (light + dark mode)
-├── app.js       # All logic (parsing, canvas, drag, export)
-└── README.md
-```
-
-No build step, no dependencies to install. Just open `index.html` in a browser.
-
-## Deployment
-
-### Vercel
-
-1. Push this folder to a GitHub repository
-2. Go to [vercel.com](https://vercel.com) → New Project → Import your repo
-3. Leave all settings as default (Vercel auto-detects static sites)
-4. Click Deploy
-
-### GitHub Pages
-
-1. Push to GitHub
-2. Go to repo **Settings → Pages**
-3. Set source to `main` branch, root folder `/`
-4. Save — your site will be live at `https://<username>.github.io/<repo>/`
-
-## Local development
-
-No build step needed:
+## How to use this locally
 
 ```bash
 # Option 1 — Python
